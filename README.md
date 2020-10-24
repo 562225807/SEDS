@@ -3,7 +3,7 @@
 The code is being sorted out and will be uploaded soon
 
 # Citation
-```json
+```
 @inproceedings{zhang2020generating,
   title={Generating Emotional Social Chatbot Responses with a Consistent Speaking Style},
   author={Zhang, Jun and Yang, Yan and Chen, Chengcai and He, Liang and Yu, Zhou},
