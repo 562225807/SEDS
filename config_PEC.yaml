@@ -1,0 +1,155 @@
+configuration:
+  Name: PEC
+  embeddings:
+    vocab_size: 42000
+    embed_size: 300
+    person_num: 6
+    person_embed_size: 300
+  encoder:
+    bidirectional: true
+    cell_type: GRU
+    num_layers: 2
+    num_units: 512
+  decoder:
+    attn_num_units: 128
+    cell_type: GRU
+    emo_cat_units: 100
+    emo_int_units: 256
+    num_emotions: 5
+    num_layers: 2
+    num_units: 512
+    state_pass: true
+    wrapper: ECM
+  inference:
+    beam_size: 5
+    choice_path: ./choice_pred.txt
+    infer_batch_size: 16
+    infer_spectrogram_file: ./data/Audio_feature/acoustic_feature.pkl
+    infer_source_file: ./data/test/source.tsv
+    infer_source_max_length: 40
+    max_length: 40
+    output_path: ./PEC_prediction.txt
+    type: beam_search
+  training:
+    batch_size: 64
+    checkpoint_every: 500
+    spectrogram_file: ./data/Audio_feature/acoustic_feature.pkl
+    dev_source_file: ./data/dev/source.tsv
+    dev_target_file: ./data/dev/target.tsv
+    dev_choice_file: ./data/dev/choice.tsv
+    test_source_file: ./data/test/source.tsv
+    test_target_file: ./data/test/target.tsv
+    test_choice_file: ./data/test/choice.tsv
+    test_output: ./infer
+    gpu_fraction: 0.05
+    l2_regularize: null
+    learning_rate: 0.001
+    logdir: ./log_PEC/
+    loss_fig: ./PEC_training_loss_over_time
+    max_checkpoints: 10000
+    perplexity_fig: ./PEC_perplexity_over_time
+    print_every: 50
+    restore_from: ./log_PEC/
+    source_max_length: 40
+    target_max_length: 40
+    train_source_file: ./data/train/source.tsv
+    train_target_file: ./data/train/target.tsv
+    train_choice_file: ./data/train/choice.tsv
+    spectrograml_max_length: 400
+    train_steps: 3500
+    loss_weight: 0.1
+  pretrain:
+    batch_size: 64
+    checkpoint_every: 6000
+    spectrogram_file: ./data/Audio_feature/acoustic_feature.pkl
+    dev_source_file: ./data/dev_pre/source.tsv
+    dev_target_file: ./data/dev_pre/target.tsv
+    dev_choice_file: ./data/dev_pre/choice.tsv
+    test_source_file: ./data/test_pre/source.tsv
+    test_target_file: ./data/test_pre/target.tsv
+    test_choice_file: ./data/test_pre/choice.tsv
+    test_output: ./infer
+    gpu_fraction: 0.05
+    l2_regularize: null
+    learning_rate: 0.001
+    logdir: ./log_PEC_pretrain/
+    loss_fig: ./pre_PEC_training_loss_over_time
+    max_checkpoints: 10000
+    perplexity_fig: ./pre_PEC_perplexity_over_time
+    print_every: 100
+    restore_from: ./log_PEC_pretrain/
+    source_max_length: 40
+    target_max_length: 40
+    train_source_file: ./data/train_pre/source.tsv
+    train_target_file: ./data/train_pre/target.tsv
+    train_choice_file: ./data/train_pre/choice.tsv
+    spectrograml_max_length: 400
+    train_steps: 50000
+  convolution:
+    word:
+      - type: conv
+        size: 3
+        step: 1
+        filter_num: 32
+      - type: pooling
+        size: 2
+        step: 2
+      - type: conv
+        size: 3
+        step: 1
+        filter_num: 32
+      - type: pooling
+        size: 2
+        step: 2
+      - type: conv
+        size: 3
+        step: 1
+        filter_num: 32
+      - type: conv
+        size: 3
+        step: 1
+        filter_num: 32
+      - type: pooling
+        size: 2
+        step: 2
+      - type: conv
+        size: 3
+        step: 1
+        filter_num: 32
+    spectrogram:
+      - type: conv
+        size: 3
+        step: 1
+        filter_num: 32
+      - type: pooling
+        size: 2
+        step: 2
+      - type: conv
+        size: 3
+        step: 1
+        filter_num: 32
+      - type: conv
+        size: 3
+        step: 1
+        filter_num: 32
+      - type: pooling
+        size: 2
+        step: 2
+      - type: conv
+        size: 3
+        step: 1
+        filter_num: 32
+      - type: pooling
+        size: 2
+        step: 2
+      - type: conv
+        size: 3
+        step: 1
+        filter_num: 32
+      - type: conv
+        size: 3
+        step: 1
+        filter_num: 32
+  lstm:
+    int_num: 128
+
