@@ -57,7 +57,7 @@ SoundFile==0.10.2
 speechpy==2.4
 SQLAlchemy==1.3.8
 tensorboard==1.14.0
-tensorflow==1.14.0
+tensorflow==2.5.1
 tensorflow-estimator==1.14.0
 termcolor==1.1.0
 tqdm==4.32.1
