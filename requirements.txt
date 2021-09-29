@@ -32,7 +32,7 @@ llvmlite==0.29.0
 Markdown==3.1.1
 matplotlib==3.0.0
 mccabe==0.6.1
-nltk==3.4.3
+nltk==3.6.3
 numba==0.45.1
 numpy==1.17.0
 pandas==0.25.0
