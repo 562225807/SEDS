@@ -37,7 +37,7 @@ numba==0.45.1
 numpy==1.17.0
 pandas==0.25.0
 pep8==1.7.1
-protobuf==3.9.0
+protobuf==3.15.0
 pyAudioAnalysis==0.2.5
 pycparser==2.19
 pydub==0.23.1
