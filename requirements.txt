@@ -34,7 +34,7 @@ matplotlib==3.0.0
 mccabe==0.6.1
 nltk==3.4.3
 numba==0.45.1
-numpy==1.17.0
+numpy==1.22.0
 pandas==0.25.0
 pep8==1.7.1
 protobuf==3.9.0
