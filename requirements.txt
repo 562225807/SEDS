@@ -4,7 +4,7 @@ astroid==2.2.5
 audioread==2.1.8
 autocorrect==0.3.0
 blitzdb==0.4.4
-certifi==2019.6.16
+certifi==2022.12.7
 cffi==1.12.3
 chardet==3.0.4
 checkmate==0.2.0
